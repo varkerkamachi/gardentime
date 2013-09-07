@@ -1,7 +1,7 @@
 class Care < ActiveRecord::Base
   belongs_to :plant
   belongs_to :soil
-  attr_accessible :plant_id, :optimum_temperature_high, :optimum_temperature_low, :sun, :sun_frequency, :water, :water_frequency
+  attr_accessible :soil_id, :plant_id, :optimum_temperature_high, :optimum_temperature_low, :sun, :sun_frequency, :water, :water_frequency
   validates_presence_of :plant_id
 
   def sun_lover?
