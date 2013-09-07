@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907192359) do
+ActiveRecord::Schema.define(:version => 20130907200717) do
 
   create_table "caredifficulties", :force => true do |t|
     t.string   "level"
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(:version => 20130907192359) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "plant_types", :force => true do |t|
+    t.string   "name"
+    t.text     "features"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "plants", :force => true do |t|
     t.string   "name"
     t.string   "genus"
@@ -71,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130907192359) do
     t.decimal  "geoX",                :precision => 10, :scale => 8
     t.decimal  "geoY",                :precision => 10, :scale => 8
     t.integer  "caredifficulties_id"
+    t.integer  "plant_type_id"
   end
 
   add_index "plants", ["gallery_id"], :name => "index_plants_on_gallery_id"
