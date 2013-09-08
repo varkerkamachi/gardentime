@@ -19,7 +19,7 @@ Fertilizer.create([
 Location.create([
   { name: 'Indoors' },
   { name: 'Outdoors' },
-  { name: 'Indoor and Outdoor' },
+  { name: 'Indoor/Outdoor' },
   { name: 'Arid steppes' },
   { name: 'Swampy Lowlands' }
 ])

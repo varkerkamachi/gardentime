@@ -1,0 +1,27 @@
+!!! html
+%html
+  %head
+    %meta{ :name => "Charset", :content => "UTF-8" }
+    %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=2.0; user-scalable=1;" }
+    - if @pagedescription
+      %meta{ :name => "Description", :content => "#{@pagedescription}" }
+    %title="YardBeautiful"
+    =stylesheet_link_tag "bootstrap.min", "application"
+    =javascript_include_tag "application"
+    =csrf_meta_tags
+    %noscript="You must enable JavaScript to view this website"
+    
+  %body
+    #wrap
+      .header-decoration="&nbsp;"
+      .container.clearfix
+        %header.page-header.clearfix
+          #logo
+            =link_to "My Garden Site", root_path
+          =render :partial => 'home/main_nav'
+        .cols.left-sidebar.pull-left
+          left col
+        =yield
+
+    %footer#footer.clearfix
+      =render :partial => 'home/footer'

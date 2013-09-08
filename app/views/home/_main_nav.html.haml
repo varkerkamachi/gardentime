@@ -1,0 +1,8 @@
+%ul.nav.main-nav
+  %li
+    =link_to "plants by location", locations_path
+    %ul
+      %li
+        -@location_nav_items.each_with_index do |loc, idx|
+          -last_elm = idx == @location_nav_items.count-1 ? 'last' : ''
+          =link_to loc.name, location_path(loc), :class => last_elm

@@ -1,19 +1,255 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
+$dark_green: #3c6243
+$medium_green: #159243
+$light_green: #92d29e
+*/
 
+html,
+body {
+	height:100%;
+	font-size:105%;
+	color:#585f65;
+}
 
- */
+ul,
+ul li {
+	list-style:none outside none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration:none;
+	color:#497daa;
+}
+a:visited {
+	color:#b59497;
+}
+a:hover {
+	color:#37424c;
+}
+a:active,
+a.active {
+	color:#000000;
+}
+
+#wrap {
+	height:auto;
+	position:relative;
+	padding:0 0 90px;
+	margin:0 auto -90px;
+	min-height:100%;
+}
+
+#wrap .container,
+.container {
+	width:1140px;
+	padding:0;
+	margin:0 auto;
+}
+
+#wrap > .container {
+	height:100%;
+}
+
+/*------- HEADER ------------*/
+
+header.page-header,
+.page-header {
+	border-bottom:none;
+	position:relative;
+	padding:0;
+	margin:0 auto;
+}
+
+.header-decoration {
+	position:absolute;
+	top:50px;
+	left:0;
+	height:30px;
+	width:100%;
+	background: transparent url('../assets/green-tile.gif') left 0 repeat;
+	z-index:1;
+	text-indent:-999em;
+}
 
 #logo {
-	background:transparent url('../assets/logo.png') left center no-repeat;
-	width:250px;
+	background: transparent url('../assets/logo.png') left center no-repeat;
+	float:left;
+	position:relative;
 	height:80px;
+	padding:12px 0 0 115px;
+	font:bold 25px/32px sans-serif;
+	z-index:2;
+}
+
+#logo a {
+	display:block;
+	text-decoration:none;
+	color:#3c6243;
+}
+
+#logo:hover {
+	cursor:pointer;
+}
+
+
+/* --------- HEADER NAV -----------*/
+
+.nav,
+.nav li {
+	list-style:none outside none;
+}
+
+.nav.main-nav {
+	position:relative;
+	top:50px;
+	overflow:visible;
+	z-index:3;
+}
+
+.nav.main-nav li {
+	float:left;
+	padding:0;
+	margin:0;
+}
+
+.nav.main-nav li a {
+	display:block;
+	padding:3px 20px;
+	text-align:center;
+	font:normal 22px/24px "Tahoma", "Helvetica", sans-serif;
+	text-shadow:0 1px 0 #3c6243;
+	color:#e8f2f1;
+}
+
+.nav.main-nav li a:hover {
+	background:#92d29e;
+	color:#3c6243;
+	text-shadow:0 1px 0 #f2f4f3;
+}
+
+/* nested list dependencies */
+li ul {
+  display:none;
+}
+
+ul li ul {
+	background:#159243;
+	box-shadow:0 1px 2px #a7abab;
+	border-radius:0 0 8px 8px;
+  margin:0;
+  padding:0;
+  position:absolute;
+  top:30px;
+  left:0;
+	z-index:15;
+}
+
+ul li:hover > ul {
+  display:block;
+}
+
+ul ul li {
+  float:none;
+}
+
+ul.nav.main-nav ul li a {
+	display:block;
+	font-size:18px;
+	text-align:left;
+	line-height:32px;
+	padding-left:44px;
+}
+
+ul ul li a.last {
+	border-radius:0 0 8px 8px;
+}
+
+ul.nav.main-nav ul li a:hover {
+	text-shadow:none;
+}
+
+ul ul li ul {
+  top:-12px;
+  left:15px;
+}
+
+/* --------- LEFT NAV COLUMN ----------*/
+.cols.left-sidebar {
+	width:200px;
+	padding:20px;
+	height:100%;
+	background:#f0f5f1;
+}
+
+.cols.center-stack {
+	width:560px;
+	padding:0;
+	margin:15px 30px 30px;
+}
+
+.cols.right-sidebar {
+	width:240px;
+	padding:20px;
+}
+
+.cols.center-double {
+	width:850px;
+	padding:0;
+	margin:15px 20px 30px 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------- FOOTER -----------*/
+#footer {
+	position:relative;
+	z-index:2;
+	min-height:90px;
+	background:#58675a;
+	border-top:2px solid #159243;
+	text-align:center;
+	font:normal 12px/19px sans-serif;
+	color:#f0f5f1;
+}
+
+#footer .cols {
+	width:32%;
+	margin:0 auto;
+	text-align:center;
+}
+
+#footer a:link {
+	color:#f0f5f1;
+}
+
+#footer a:hover {
+	text-decoration:underline;
+	color:#ffffff;
+}
+
+#footer .cols > .inner-wrapper {
+	padding:20px;
 }
