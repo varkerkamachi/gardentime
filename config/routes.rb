@@ -1,4 +1,13 @@
 YardBeautiful::Application.routes.draw do
+
+  root :to => 'home#index'
+
+  resources :locations
+  resources :seasons
+  resources :plant_types
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
