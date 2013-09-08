@@ -297,6 +297,34 @@ ul.curated-list li > p.notification {
 	padding-left:0;
 }
 
+.blocks {
+	padding:20px;
+	border:1px solid #f4f8f7;
+	font-size:16px;
+	margin-bottom:35px;
+}
+
+.blocks.list {
+	padding:20px 30px;
+	border-style:dotted;
+}
+
+.blocks.list ul,
+.blocks.list ul li {
+	list-style:disc;
+}
+
+.label {
+	background:#a6aca9;
+	text-align:center;
+	color:#ffffff;
+	border-radius:2px;
+	padding:3px 18px;
+	font-size:14px;
+	font-weight:500;
+	box-shadow:0 0 1px #a9abaa;
+}
+
 .category_results_wrapper {
 	padding-left:30px;
 	font-size:14px;

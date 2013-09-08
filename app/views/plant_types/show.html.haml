@@ -1,7 +1,43 @@
-.cols.center-stack.pull-left
+.cols.center-stack.pull-left.clearfix
   %h2="Plant library"
   - if !@plant_type.nil?
-    =@plant_type.name.titleize
+    %h3
+      =@plant_type.name.titleize
+
+    .label="Description"
+    .text.blocks.clearfix
+      %br
+      =@plant_type.description * 5
+
+    .label="Features"
+    .list.blocks.clearfix
+      %br
+      - if @plant_type.features.nil?
+        .text-muted
+          No features found
+      - else
+        - features = @plant_type.features.split(',')
+        %ul.fetaures
+          - features.each do |f|
+            %li
+              =f.capitalize
+    - if !@associated_plants.empty?
+      .label="Related plants"
+      .text.blocks.clearfix
+        %br
+        - @associated_plants.each do |p|
+          - if Gallery.find_by_plant_id(p) != nil
+            - thumbnail = Gallery.find_by_plant_id(p).image1
+          - else
+            - thumbnail = 'placeholder-60x60.jpg'
+          .category_results_wrapper.clearfix
+            =link_to(image_tag("plants/#{thumbnail}", :size => "60x60", :class=> "category_thumbs"), plant_path(p), :class => 'pull-left')
+            %p
+              =link_to(p.name.titleize, plant_path(p), :class=>'h4 pull-left')
+              %br
+              =p.description * 2
+
+    
   - else
     .text-muted
       This plant type type was not found
