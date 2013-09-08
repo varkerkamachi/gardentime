@@ -2,9 +2,13 @@ YardBeautiful::Application.routes.draw do
 
   root :to => 'home#index'
 
-  resources :locations
-  resources :seasons
-  resources :plant_types
+  resources :locations, :only=>[:index, :show]
+  resources :seasons, :only=>[:index, :show]
+  resources :plant_types, :only=>[:index, :show]
+  resources :soils, :only=>[:index, :show]
+  resources :fertilizers, :only=>[:index, :show]
+  
+  resources :plants
 
 
 

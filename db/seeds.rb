@@ -56,8 +56,9 @@ Care.create([
   { plant_id: 4, sun: 6, sun_frequency: 'daily', water: 7, water_frequency: 'daily', soil_id: 2, optimum_temperature_low: 41, optimum_temperature_high: 85 },
 ])
 Gallery.create([
-  { plant_id: 0, image1: 'ice_plant1.jpg', image2: 'ice_plant2.jpg', image3: 'ice_plant3.jpg' },
-  { plant_id: 2, image1: 'willow1.jpg', image2: 'willow2.jpg', image3: 'willow3.jpg' },
-  { plant_id: 3, image1: 'morning_glory1.jpg', image2: 'morning_glory2.jpg', image3: 'morning_glory3.jpg' },
-  { plant_id: 4, image1: 'butterfly1.jpg', image2: 'butterfly2.jpg', image3: 'butterfly3.jpg' },
+  { plant_id: 1, image1: 'ice_plant1.jpg', image2: 'ice_plant2.jpg', image3: 'ice_plant3.jpg' },
+  { plant_id: 2, image1: 'japanese_maple1.jpg', image2: 'japanese_maple2.jpg', image3: 'japanese_maple3.jpg' },
+  { plant_id: 3, image1: 'willow1.jpg', image2: 'willow2.jpg', image3: 'willow3.jpg' },
+  { plant_id: 4, image1: 'morning_glory1.jpg', image2: 'morning_glory2.jpg', image3: 'morning_glory3.jpg' },
+  { plant_id: 5, image1: 'butterfly1.jpg', image2: 'butterfly2.jpg', image3: 'butterfly3.jpg' },
 ])

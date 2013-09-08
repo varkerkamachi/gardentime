@@ -20,7 +20,27 @@
             =link_to "My Garden Site", root_path
           =render :partial => 'home/main_nav'
         .cols.left-sidebar.pull-left
-          left col
+          .nav-subhead
+            %span="Seasonal favorites"
+          .nav-blind
+            %ul.section-nav
+              -@season_nav_items.each do |s|
+                %li
+                  =link_to s.name.titleize, season_path(s)
+    
+          .nav-subhead
+            %span="Plants by type"
+          .nav-blind
+            %ul.section-nav
+              -@plant_types.each do |p|
+                %li
+                  =link_to p.name.titleize, plant_type_path(p)
+          
+          .divider="\&nbsp;"
+          
+          =render :partial => 'home/left-sidebar-secondary-nav'
+          .divider="\&nbsp;"
+
         =yield
 
     %footer#footer.clearfix

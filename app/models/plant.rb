@@ -17,5 +17,5 @@ class Plant < ActiveRecord::Base
   def has_images?
     gallery_id != nil
   end
-  
+    
 end
