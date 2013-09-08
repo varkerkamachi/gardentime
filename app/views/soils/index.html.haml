@@ -1,0 +1,15 @@
+.cols.center-stack.pull-left
+  %h2="Library of Soil Types"
+  
+  %ul.curated-list
+    - if @soils.nil?
+      %p.text-muted
+        No soils found!
+    - else
+      -@soils.each do |s|
+        %li.clearfix
+          %h3
+            =link_to(s.name.titleize, soil_path(s))
+
+.cols.right-sidebar.pull-right
+  =render :partial => 'home/right_sidebar'

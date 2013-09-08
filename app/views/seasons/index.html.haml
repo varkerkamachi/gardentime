@@ -1,13 +1,13 @@
 .cols.center-stack.pull-left
-  %h2="Plants for every location"
+  %h2="Plants for every season"
   
   %ul.curated-list
-    -@locations.each do |loc|
+    -@seasons.each do |s|
       %li.clearfix
-        - if !Plant.find_by_location_id(loc).nil?
+        - if !Plant.find_by_season_id(s).nil?
           %h3
-            =link_to(loc.name.titleize, '#')
-          - plants = Plant.find_all_by_location_id(loc)
+            =link_to(s.name.titleize, '#')
+          - plants = Plant.find_all_by_season_id(s)
           - plants.each do |p|
             - if Gallery.find_by_plant_id(p) != nil
               - thumbnail = Gallery.find_by_plant_id(p).image1
@@ -20,8 +20,8 @@
                 %br
                 =p.description * 2
         - else
-          %h3=loc.name.titleize
+          %h3=s.name.titleize
           %p.notification.text-muted
-            No matching plants found for this location
+            No matching plants found for this season
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'

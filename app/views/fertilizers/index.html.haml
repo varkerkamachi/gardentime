@@ -1,0 +1,15 @@
+.cols.center-stack.pull-left
+  %h2="Library of Fertilizer Types"
+  
+  %ul.curated-list
+    - if @fertilizers.nil?
+      %p.text-muted
+        No fertilizers found!
+    - else
+      -@fertilizers.each do |f|
+        %li.clearfix
+          %h3
+            =link_to(f.name.titleize, fertilizer_path(f))
+
+.cols.right-sidebar.pull-right
+  =render :partial => 'home/right_sidebar'

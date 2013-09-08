@@ -1,10 +1,10 @@
 .cols.center-stack.pull-left
-  %h2="Soils and soil types"
-  - if !@soil.nil?
-    =@soil.name.titleize
+  %h2="Seasonal varieties"
+  - if !@season.nil?
+    =@season.name.titleize
   - else
     .text-muted
-      This soil type was not found
+      This season type was not found
 
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'

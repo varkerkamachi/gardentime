@@ -1,0 +1,17 @@
+.nav-subhead
+  %span
+    =link_to("Seasonal favorites", seasons_path)
+.nav-blind
+  %ul.section-nav
+    -@season_nav_items.each do |s|
+      %li
+        =link_to s.name.titleize, season_path(s)
+
+.nav-subhead
+  %span
+    =link_to("Plants by type", plant_types_path)
+.nav-blind
+  %ul.section-nav
+    -@plant_types.each do |p|
+      %li
+        =link_to p.name.titleize, plant_type_path(p)

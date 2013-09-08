@@ -1,6 +1,10 @@
 .cols.center-stack.pull-left
   %h2="Fertilizers"
-  =@fertilizer.name.titleize
+  - if @fertilizer.nil?
+    .text-muted
+      That fertilizer type was not found
+  - else
+    =@fertilizer.name.titleize
 
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'

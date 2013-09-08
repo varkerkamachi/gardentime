@@ -1,0 +1,17 @@
+.cols.center-stack.pull-left
+  %h2="Library of Plant Types"
+  
+  %ul.curated-list
+    - if @plant_types.nil?
+      %p.text-muted
+        No plant types found!
+    - else
+      -@plant_types.each do |pt|
+        %li.clearfix
+          %h3
+            =link_to(pt.name.titleize, plant_type_path(pt))
+          %p
+            =pt.description * 2
+
+.cols.right-sidebar.pull-right
+  =render :partial => 'home/right_sidebar'

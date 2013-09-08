@@ -1,6 +1,10 @@
 .cols.center-stack.pull-left
   %h2="Locations"
-  =@location.name.titleize
+  - if @location.nil?
+    .text-muted
+      That location was not found
+  - else
+    =@location.name.titleize
 
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'

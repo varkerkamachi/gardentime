@@ -15,33 +15,25 @@
     #wrap
       .header-decoration="&nbsp;"
       .container.clearfix
+      
+        //header section
         %header.page-header.clearfix
           #logo
             =link_to "My Garden Site", root_path
           =render :partial => 'home/main_nav'
+        
+        //left column stays fixed throughout app for now
         .cols.left-sidebar.pull-left
-          .nav-subhead
-            %span="Seasonal favorites"
-          .nav-blind
-            %ul.section-nav
-              -@season_nav_items.each do |s|
-                %li
-                  =link_to s.name.titleize, season_path(s)
-    
-          .nav-subhead
-            %span="Plants by type"
-          .nav-blind
-            %ul.section-nav
-              -@plant_types.each do |p|
-                %li
-                  =link_to p.name.titleize, plant_type_path(p)
-          
+          = render :partial => 'home/left_sidebar'
           .divider="\&nbsp;"
           
-          =render :partial => 'home/left-sidebar-secondary-nav'
+          =render :partial => 'home/left_sidebar_secondary_nav'
           .divider="\&nbsp;"
-
+        
+        //center-stack or main column and right columns 
         =yield
-
+    
+    //footer we bring outside the wrapper
     %footer#footer.clearfix
       =render :partial => 'home/footer'
+      

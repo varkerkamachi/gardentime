@@ -1,10 +1,10 @@
 .cols.center-stack.pull-left
-  %h2="Soils and soil types"
-  - if !@soil.nil?
-    =@soil.name.titleize
+  %h2="Plant library"
+  - if !@plant_type.nil?
+    =@plant_type.name.titleize
   - else
     .text-muted
-      This soil type was not found
+      This plant type type was not found
 
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'
