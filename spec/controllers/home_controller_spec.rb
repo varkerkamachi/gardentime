@@ -31,12 +31,6 @@ describe HomeController do
     it "assigns @drought_tolerants" do
       assigns(:water_lovers).should_not be_nil
     end
-    it "assigns @fertilizers" do
-      assigns(:fertilizers).should_not be_nil
-    end
-    it "assigns @soils" do
-      assigns(:soils).should_not be_nil
-    end
   end
 
 end

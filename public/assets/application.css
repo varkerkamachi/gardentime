@@ -293,7 +293,9 @@ ul.curated-list li > p {
 	margin:5px auto 20px;
 }
 
-
+ul.curated-list li > p.notification {
+	padding-left:0;
+}
 
 
 

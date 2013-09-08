@@ -1,0 +1,26 @@
+.cols.center-stack.pull-left
+  %h2="Plants for every location"
+  
+  %ul.curated-list
+    -@location_nav_items.each do |loc|
+      %li.clearfix
+        - if !Plant.find_by_location_id(loc).nil?
+          %h3
+            =link_to(loc.name.titleize, '#')
+          - plant = Plant.find_by_location_id(loc)
+          - if Gallery.find_by_plant_id(plant) != nil
+            - thumbnail = Gallery.find_by_plant_id(plant).image1
+          - else
+            - thumbnail = 'placeholder-120x120.jpg'
+
+          =link_to(image_tag("plants/#{thumbnail}", :size => "120x120", :class=> "curated_thumbs"), plant_path(plant))
+          %p
+            =link_to(plant.name.titleize, plant_path(plant), :class=>'h4')
+            %br
+            =plant.description * 2
+        - else
+          %h3=loc.name.titleize
+          %p.notification.text-muted
+            No matching plants found for this location
+.cols.right-sidebar.pull-right
+  =render :partial => 'home/right_sidebar'

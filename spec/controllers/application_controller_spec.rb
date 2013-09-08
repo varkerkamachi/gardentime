@@ -7,7 +7,6 @@ describe ApplicationController do
     it{ should respond_to(:get_seasons) }  
     it{ should respond_to(:get_types) }  
     it{ should respond_to(:get_fertilizers) }
-    it{ should respond_to(:get_soils) }  
     it{ should respond_to(:no_greenthumbs) }  
     it{ should respond_to(:extra_tlc) }  
     it{ should respond_to(:pro_challenge) }  

@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe LocationsController do
-
+  let(:mylocation){ Location.create(:id => 10, :name => 'Canyons')}
+  subject{ mylocation }
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
@@ -11,7 +12,7 @@ describe LocationsController do
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      get 'show', :id => mylocation.id
       response.should be_success
     end
   end

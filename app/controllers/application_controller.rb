@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :get_plants, :get_locations, :get_seasons, :get_types, :get_soils, :no_greenthumbs, :extra_tlc, :pro_challenge, :get_fertilizers, :find_water_lovers, :find_sun_lovers, :find_drought_tolerants
+  before_filter :get_plants, :get_locations, :get_seasons, :get_types, :no_greenthumbs, :extra_tlc, :pro_challenge, :find_water_lovers, :find_sun_lovers, :find_drought_tolerants
   
   def get_plants
     Plant.all
@@ -16,14 +16,6 @@ class ApplicationController < ActionController::Base
   
   def get_types
     @plant_types = PlantType.find(:all)
-  end
-  
-  def get_fertilizers
-    @fertilizers = Fertilizer.all
-  end
-
-  def get_soils
-    @soils = Soil.all
   end
 
   def find_water_lovers
