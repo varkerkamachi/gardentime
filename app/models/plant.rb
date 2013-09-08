@@ -4,7 +4,7 @@ class Plant < ActiveRecord::Base
   belongs_to :gallery
   belongs_to :caredifficulty
   belongs_to :plant_type
-  attr_accessible :plant_type_id, :caredifficulties_id, :location_id, :season_id, :gallery_id, :description, :genus, :name, :geoX, :geoY
+  attr_accessible :colors, :plant_type_id, :caredifficulties_id, :location_id, :season_id, :gallery_id, :description, :genus, :name, :geoX, :geoY
   
   validates_presence_of :name
   

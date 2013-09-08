@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :description
   validates_presence_of :name
   validates_length_of :name, :maximum=>48, :message=>"choose a shorter location name"
   

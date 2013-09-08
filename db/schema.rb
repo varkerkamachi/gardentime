@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130907200717) do
+ActiveRecord::Schema.define(:version => 20130908224624) do
 
   create_table "caredifficulties", :force => true do |t|
     t.string   "level"
@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(:version => 20130907200717) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "plant_types", :force => true do |t|
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130907200717) do
     t.decimal  "geoY",                :precision => 10, :scale => 8
     t.integer  "caredifficulties_id"
     t.integer  "plant_type_id"
+    t.string   "colors"
   end
 
   add_index "plants", ["gallery_id"], :name => "index_plants_on_gallery_id"
@@ -88,15 +90,17 @@ ActiveRecord::Schema.define(:version => 20130907200717) do
 
   create_table "seasons", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "soils", :force => true do |t|
     t.string   "name"
     t.integer  "scale"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
 end

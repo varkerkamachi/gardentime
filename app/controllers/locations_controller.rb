@@ -6,6 +6,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find_by_id(params[:id])
+    @associated_plants = Plant.find_all_by_location_id(params[:id])
   end
   
 end
