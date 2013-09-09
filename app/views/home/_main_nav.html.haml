@@ -2,7 +2,9 @@
   -@plant_types.each_with_index do |type|
     %li
       =link_to(type.name.titleize, plant_type_path(type))
-
+  
+  %li
+    =link_to "all plants", plants_path
   %li
     =link_to "plants by location", locations_path
     %ul

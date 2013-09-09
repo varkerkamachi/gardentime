@@ -1,0 +1,22 @@
+.cols.center-stack.pull-left
+  %h3="#{@pagetitle}"
+
+  - if !@filtered_results.nil?
+    %ul.curated-list
+      -@filtered_results.each do |plant|
+        %li.clearfix
+          - if Gallery.find_by_plant_id(plant) != nil
+            - thumbnail = Gallery.find_by_plant_id(plant).image1
+          - else
+            - thumbnail = 'placeholder-120x120.jpg'
+
+          =link_to(image_tag("plants/#{thumbnail}", :size => "120x120", :class=> "curated_thumbs"), plant_path(plant))
+          %p
+            =link_to(plant.name.titleize, plant_path(plant), :class=>'h4')
+            %br
+            =plant.description * 2
+  - else
+    %p.text-muted
+      No matching results were found
+.cols.right-sidebar.pull-right
+  =render :partial => 'home/right_sidebar'

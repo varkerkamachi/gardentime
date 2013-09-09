@@ -7,9 +7,16 @@ YardBeautiful::Application.routes.draw do
   resources :plant_types, :only=>[:index, :show]
   resources :soils, :only=>[:index, :show]
   resources :fertilizers, :only=>[:index, :show]
-  
-  resources :plants
 
+  match 'plants/sun_lovers' => 'plants#sun_lovers'
+  match 'plants/water_lovers' => 'plants#water_lovers'
+  match 'plants/drought_tolerant' => 'plants#drought_tolerant'
+  
+  match 'plants/easy_to_care_for' => 'plants#easy_care'
+  match 'plants/semi_easy_to_care_for' => 'plants#medium_care'
+  match 'plants/difficult_to_care_for' => 'plants#hard_care'
+
+  resources :plants
 
 
   # The priority is based upon order of creation:

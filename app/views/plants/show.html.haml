@@ -1,0 +1,89 @@
+.cols.center-double.pull-left.clearfix
+
+  %h3
+    =@plant.name.titleize
+  .detail-header.banner-area.clearfix
+    .plant-info.pull-left
+      %ul.characteristics
+        - unless @plantcare.nil?
+          - water_class = @plantcare.water.between?(0,3) ? 'low' : @plantcare.water.between?(4,7) ? 'mid' : 'high'
+          - sun_class = @plantcare.sun.between?(0,3) ? 'low' : @plantcare.sun.between?(4,7) ? 'mid' : 'high'
+          %li{ :class => "water #{water_class}" }
+            %b
+              Water:
+            =@plantcare.water_frequency
+          
+          %li{ :class => "sun #{sun_class}" }
+            %b
+              Sun:
+            =@plantcare.sun_frequency
+
+          %li{ :class => "soil" }
+            %b
+              Soil:
+            - if !Soil.find_by_id(@plantcare.soil_id).nil?
+              =Soil.find_by_id(@plantcare.soil_id).name.capitalize
+            - else
+              .text-muted="Soil not found"
+          
+          %li
+            %b="Colors: "
+            =@plant.colors.titleize
+          
+      %h4.subhead="Care Required"
+      .grid
+        .swoosh
+      .label-row
+        - idx = 0
+        - @difficulties.each do |d|
+          - idx += 1
+          - active = @plant.caredifficulties_id == d.id ? 'active' : ''
+          - margin = 100/@difficulties.count
+          - pos = (idx == @difficulties.count) ? 'left' : 'right'
+          .labels{ :class => "#{active}", :style => "margin-#{pos}:#{margin}px;" }
+            =d.level
+   
+    .gallery.pull-right
+      =image_tag("plants/#{@gallery.image1}", :class => 'gallery-main')
+  
+  .text-area.pull-left
+    %p
+      =@plant.description * 3
+    
+    - 3.times do |x|
+      %p
+        =@plant.description * 4
+    
+  .right-col.pull-right
+    %h4.subhead="Recommended Care"
+    
+    %ul.care-list
+      %li
+        %span.sub-subhead
+          General:
+        %br
+        %p
+          =@plant.description * 3
+      %li
+        %span.sub-subhead
+          Water:
+        %br
+        %p
+          =@plant.description * 2
+      %li
+        %span.sub-subhead
+          Sun:
+        %br
+        %p
+          =@plant.description
+
+
+    %h4.subhead="Growth/Bloom"
+    %ul.care-list
+      %li
+        %span.sub-subhead
+          General:
+        %br
+        %p
+          =@plant.description * 4
+    

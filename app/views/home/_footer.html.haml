@@ -1,31 +1,40 @@
 .cols.pull-left
   .inner-wrapper
     %ul
-      %li
-        =link_to 'something', '#'
-      %li
-        =link_to 'something', '#'
-      %li
-        =link_to 'something', '#'
+      - @plant_types.each do |x|
+        %li
+          =link_to x.name, plant_type_path(x)
+      - @plants.each do |x|
+        %li
+          =link_to x.name, plant_path(x)
     
 
 .cols.pull-left
   .inner-wrapper
     %ul
-      %li
-        =link_to 'something', '#'
-      %li
-        =link_to 'something', '#'
-        
-    %p.text-muted.credit="here's the really long &copy; copyright line to show that I own the content"
+      - @location_nav_items.each do |x|
+        %li
+          =link_to x.name, location_path(x)
+    %br
+    %p.text-muted.credit="Here's the really long copyright line to show that I own the content"
 
 .cols.pull-right
   .inner-wrapper
     %ul
       %li
-        =link_to 'something', '#'
+        =link_to('Drought tolerant', plants_drought_tolerant_path)
       %li
-        =link_to 'something', '#'
+        =link_to('Sun lovers', plants_sun_lovers_path)
       %li
-        =link_to 'something', '#'
+        =link_to('Water lovers', plants_water_lovers_path)
+      %li
+        =link_to('No greenthumb?', plants_easy_to_care_for_path)
+      %li
+        =link_to('These need extra tlc', plants_semi_easy_to_care_for_path)
+      %li
+        =link_to('For the pro', plants_difficult_to_care_for_path)
+      %li
+        =link_to('Soil types', soils_path)
+      %li
+        =link_to('Fertilizer info', fertilizers_path)
   

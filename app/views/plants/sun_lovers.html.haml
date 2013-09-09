@@ -1,8 +1,9 @@
 .cols.center-stack.pull-left
-  %h2="Plant Library"
+  special page
+  %h2="#{@pagetitle}"
   
   %ul.curated-list
-    -@plants.each do |plant|
+    -@filtered_results.each do |plant|
       %li.clearfix
         - if Gallery.find_by_plant_id(plant) != nil
           - thumbnail = Gallery.find_by_plant_id(plant).image1
