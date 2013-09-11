@@ -1,5 +1,7 @@
 YardBeautiful::Application.routes.draw do
 
+  get "plants/seasonal_favorites"
+
   root :to => 'home#index'
 
   resources :locations, :only=>[:index, :show]
@@ -18,7 +20,11 @@ YardBeautiful::Application.routes.draw do
 
   resources :plants
 
-
+  # ========== api v1  ===============
+  namespace :api do
+    get '/plants/seasonal_favorites/:slug(.:format)' => 'plants#seasonal_favorites'
+    # resources :plants, :only=>[:index, :show]
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

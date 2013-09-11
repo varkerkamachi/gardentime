@@ -16,7 +16,7 @@ describe PlantsController do
       get :show, :id => myplant.id
       expect(response.status).to eq(200)
       response.should render_template('plants/show')
-      expect(assigns(:plant)).to_not be_nil      
+      expect(assigns(:plant)).to_not be_nil
     end
     
     it 'loads the sun lover view' do
