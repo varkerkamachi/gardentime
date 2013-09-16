@@ -9,11 +9,10 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.create(params[:vote])
-    plant_id = params[:plant_id]
-    # votes = params[:votes]
+    plant_id = @vote.plant_id
     respond_to do |format|
       if @vote.save
-        format.json { render :json => { :votes => Vote.find_all_by_plant_id(plant_id).count } }
+        format.json { render :json => { :votes => Vote.find_all_by_plant_id(plant_id).count, :id => plant_id } }
       else
         format.html { render action: "edit" }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
