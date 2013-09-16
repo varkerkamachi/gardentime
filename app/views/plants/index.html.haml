@@ -14,6 +14,27 @@
           =link_to(plant.name.titleize, plant_path(plant), :class=>'h4')
           %br
           =plant.description * 2
+        .popularity.text-muted
+          votes:
+          %span{:id=>"#vote-count-#{plant.id}", :class=>'vote-count'}
+            - if !Vote.find_all_by_plant_id(plant.id).nil?
+              =Vote.find_all_by_plant_id(plant.id).count
+          =link_to('vote!', 'javascript:void(0)', :class => 'vote-link', :id => plant.id)  
+          
   
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'
+  
+  
+:javascript
+  jQuery(document).on('click', '.vote-link', function() {
+    $.ajax({
+      url: "#{votes_path}",
+      method: 'POST',
+      dataType: 'json',
+      data: {vote : {"vote":1, "plant_id": $(this).attr('id'), "votes": $('vote-count-' + $(this).attr('id')).text()} }
+    }).done(function(resp){
+      $('vote-count-' + $(this).attr('id')).text($('vote-count-' + $(this).attr('id')).text() + resp);
+    });
+    
+  });

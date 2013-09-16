@@ -12,9 +12,9 @@ Caredifficulty.create([
   { level: 'Hardest', description: 'These plants aren\'t for everyone to take care of - nope, these require extra attention.' }
 ])
 Fertilizer.create([
-  { name: 'None' },
-  { name: '10-40-20' },
-  { name: 'Cow turd' }
+  { name: 'None', description: 'This is a description of this type of fertilizer. It tells about what soil types it helps and how. It also tells about which plants it can help the most.' },
+  { name: '10-40-20', description: 'This is a description of this type of fertilizer. It tells about what soil types it helps and how. It also tells about which plants it can help the most.' },
+  { name: 'Cow turd', description: 'This is a description of this type of fertilizer. It tells about what soil types it helps and how. It also tells about which plants it can help the most.' }
 ])
 Location.create([
   { name: 'Indoors', description: 'This should be a description of what the average location of this type is like in terms of temperature, humidity and sunlight. It will say what types of things are necessary in this environment for plant care.' },

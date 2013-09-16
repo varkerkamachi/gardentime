@@ -15,6 +15,7 @@ describe SeasonsController do
       get :show, :id => sss.id
       expect(response.status).to eq(200)
       expect(assigns(:season)).to_not be_nil
+      expect(assigns(:season_plants)).to_not be_nil
     end
   end
   

@@ -1,0 +1,21 @@
+-@seasons.each do |s|
+  %li.clearfix
+    - if !Plant.find_by_season_id(s).nil?
+      %h3
+        =link_to(s.name.titleize, '#')
+      - plants = Plant.find_all_by_season_id(s)
+      - plants.each do |p|
+        - if Gallery.find_by_plant_id(p) != nil
+          - thumbnail = Gallery.find_by_plant_id(p).image1
+        - else
+          - thumbnail = 'placeholder-60x60.jpg'
+        .category_results_wrapper.clearfix
+          =link_to(image_tag("plants/#{thumbnail}", :size => "60x60", :class=> "category_thumbs"), plant_path(p), :class => 'pull-left')
+          %p
+            =link_to(p.name.titleize, plant_path(p), :class=>'h4 pull-left')
+            %br
+            =p.description * 2
+    - else
+      %h3=s.name.titleize
+      %p.notification.text-muted
+        No matching plants found for this season

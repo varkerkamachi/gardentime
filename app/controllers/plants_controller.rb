@@ -2,6 +2,7 @@ class PlantsController < ApplicationController
   
   def index
     @plants = Plant.all
+    @vote = Vote.new
   end
   
   def show

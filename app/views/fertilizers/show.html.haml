@@ -4,7 +4,13 @@
     .text-muted
       That fertilizer type was not found
   - else
-    =@fertilizer.name.titleize
+    %h3
+      =@fertilizer.name.titleize
+    
+    .label="Description"
+    .text.blocks.clearfix
+      %br
+      =@fertilizer.description * 3
 
 .cols.right-sidebar.pull-right
   =render :partial => 'home/right_sidebar'
