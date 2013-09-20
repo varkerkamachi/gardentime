@@ -7,7 +7,7 @@ YardBeautiful::Application.routes.draw do
   resources :plant_types, :only=>[:index, :show]
   resources :soils, :only=>[:index, :show]
   resources :fertilizers, :only=>[:index, :show]
-  resources :votes, :except => [:destroy]
+  resources :votes, :only => [:index, :new, :create]
 
   match 'plants/sun_lovers' => 'plants#sun_lovers'
   match 'plants/water_lovers' => 'plants#water_lovers'
