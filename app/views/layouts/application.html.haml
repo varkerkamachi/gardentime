@@ -22,6 +22,10 @@
             =link_to "My Garden Site", root_path
           =render :partial => 'home/main_nav'
         
+        //flash messaging
+        .notice
+        .alert
+
         //left column stays fixed throughout app for now
         .cols.left-sidebar.pull-left
           = render :partial => 'home/left_sidebar'

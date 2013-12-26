@@ -8,6 +8,8 @@ gem 'rails', '3.2.13'
 # gem 'sqlite3'
 gem 'mysql2'
 gem 'haml'
+gem 'devise'
+gem 'warden'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,6 +30,11 @@ group :test, :development do
   gem 'rspec-core'
   gem 'rspec-rails'
   gem 'rspec-mocks'
+  gem 'launchy'
+  gem 'capybara', '~> 1.1.1'
+  gem 'selenium'
+  gem 'debugger'
+  gem 'factory_girl_rails'
 end
 
 # To use ActiveModel has_secure_password
